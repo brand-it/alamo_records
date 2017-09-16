@@ -5,5 +5,17 @@ html lang="en"
     == render 'layouts/header'
 
   body
-    / https://github.com/slim-template/slim#output-without-html-escaping-
-    == yield
+    .container
+      nav.navbar.navbar-expand-lg.navbar-light.bg-light.mb-3
+        a.navbar-brand Alamo Records
+        button.navbar-toggler ata-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse
+          ul.navbar-nav.mr-auto
+            li.nav-item.active
+              = link_to 'Records', Record, class: 'nav-link'
+            li.nav-item
+              = link_to 'Artists', Record, class: 'nav-link'
+
+      / https://github.com/slim-template/slim#output-without-html-escaping-
+      == yield

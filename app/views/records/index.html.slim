@@ -1,0 +1,41 @@
+.row
+  .col
+    h1
+      | Records
+  .col
+    .d-flex.justify-content-end
+      = link_to [:new, :record], class: 'btn btn-primary btn-sm', title: 'New Record', data: { toggle: 'tooltip', placement: 'top' } do
+        =< fa_icon 'plus'
+hr
+- if @records.any?
+  table.table
+    thead
+      tr
+        th Title
+        th Year
+        th Condition
+        th
+        th
+        th
+    tbody
+      - @records.each do |record|
+        tr
+          td= record.title
+          td= record.year
+          td= record.condition
+          td= link_to record, title: 'View', class: 'btn btn-outline-info' do
+            = fa_icon 'eye'
+          td= link_to record, class: 'btn btn-outline-warning' do
+            = fa_icon 'pencil'
+          td= link_to record, data: { confirm: 'Are you sure?' }, method: :delete do
+            = fa_icon 'trash'
+- else
+  .card
+    .card-body
+      h4.card-title Lets create your first new record
+      hr
+      = simple_form_for(Record.new) do |f|
+        = f.error_notification
+        = render 'form', f: f
+        .form-actions
+          => f.button :submit, class: 'btn btn-success'

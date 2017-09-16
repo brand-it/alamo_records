@@ -1,0 +1,11 @@
+h1 Editing record
+
+= simple_form_for(@record) do |f|
+  = render 'form', f: f
+  .form-actions
+    => f.button :submit
+    = link_to Record do
+      | Cancel
+      =< fa_icon 'close'
+
+

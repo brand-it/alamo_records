@@ -1,0 +1,12 @@
+p
+  strong Title:
+  = @record.title
+p
+  strong Year:
+  = @record.year
+p
+  strong Condition:
+  = @record.condition
+
+= link_to 'Edit', [:edit, @record]
+= link_to 'List', :record
