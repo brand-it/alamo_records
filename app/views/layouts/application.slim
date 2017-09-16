@@ -1,7 +1,9 @@
 doctype html
 html lang="en"
   head
-    = render 'layouts/header'
+    / https://github.com/slim-template/slim#output-without-html-escaping-
+    == render 'layouts/header'
 
   body
-    = yield
+    / https://github.com/slim-template/slim#output-without-html-escaping-
+    == yield
