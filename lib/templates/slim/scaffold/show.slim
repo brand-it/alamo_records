@@ -1,0 +1,8 @@
+<% attributes.each do |attribute| -%>
+p
+  strong <%= attribute.human_name %>:
+  = @<%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+
+= link_to 'Edit', [:edit, @<%= singular_table_name %>]
+= link_to 'List', :<%= splural_table_name %>
