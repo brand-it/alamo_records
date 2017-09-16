@@ -18,6 +18,10 @@ module AlamoRecords
     # -- all .rb files in that directory are automatically loaded.
     config.generators do |g|
       g.template_engine :slim
+      g.system_tests = nil
+      g.stylesheets false
+      g.helper = false
+      g.fixture_replacement :factory_girl
     end
   end
 end
