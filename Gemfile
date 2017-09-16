@@ -38,13 +38,14 @@ gem 'slim'
 # gem 'capistrano-rails', group: :development
 gem 'font-awesome-rails'
 gem 'httparty'
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.5'
-  gem 'rubocop'
+  gem 'rubocop', require: false
   gem 'vcr', '~> 3.0'
 
   gem 'webmock', require: false
