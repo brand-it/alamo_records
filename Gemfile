@@ -33,14 +33,15 @@ gem 'turbolinks', '~> 5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'responders'
 gem 'slim'
 gem 'slim-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'factory_girl_rails'
 gem 'font-awesome-rails'
 gem 'httparty'
 gem 'simple_form'
-gem 'factory_girl_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,6 +51,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'vcr', '~> 3.0'
 
+  gem 'rails-controller-testing'
   gem 'webmock', require: false
 end
 
