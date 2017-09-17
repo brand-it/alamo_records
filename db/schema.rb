@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20170916205953) do
 
   create_table "records", force: :cascade do |t|
     t.string "title"
-    t.string "year"
+    t.integer "year"
     t.integer "condition"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,4 +1,4 @@
 .form-inputs
   = f.input :title, hint: 'The Record Title'
-  = f.input :year, hint: 'The Year the record was published'
-  = f.input :condition, hint: 'On a scale of 1 to 10 with 10 being best condition and 1 being the worst'
+  = f.input :year, hint: "The Year the record was published. Has to be less than or equal to #{Time.now.year}"
+  = f.input :condition, prompt: 'Condition of Record', hint: 'On a scale of 1 to 10 with 10 being best condition and 1 being the worst', collection: ReportsHelper::CONDITIONS_FOR_COLLECTION
