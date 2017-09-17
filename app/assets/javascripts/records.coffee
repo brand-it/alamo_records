@@ -17,7 +17,7 @@ class @Records
   removeCurrentLoadingMore: ->
     document.getElementById('load-more-records').remove()
 
-  appendRecipeToTable: (row) ->
+  appendRecordToTable: (row) ->
     table_body = document.getElementById('table-records-body')
     table_body.insertAdjacentHTML('beforeend', row)
 
