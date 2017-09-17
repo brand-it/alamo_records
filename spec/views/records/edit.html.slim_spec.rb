@@ -4,11 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'records/edit', type: :view do
   before(:each) do
-    @record = assign(:record, Record.create!(
-                                title: 'MyString',
-                                year: 'MyString',
-                                condition: 1
-    ))
+    @record = assign(:record, create(:record))
   end
 
   it 'renders the edit record form' do
@@ -19,7 +15,8 @@ RSpec.describe 'records/edit', type: :view do
 
       assert_select 'input[name=?]', 'record[year]'
 
-      assert_select 'input[name=?]', 'record[condition]'
+      assert_select 'select[name=?]', 'record[condition]'
+      assert_select 'select[name=?]', 'record[artist_id]'
     end
   end
 end

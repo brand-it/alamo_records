@@ -51,6 +51,8 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'vcr', '~> 3.0'
 
+  gem 'annotate'
+  gem 'faker'
   gem 'rails-controller-testing'
   gem 'webmock', require: false
 end

@@ -4,11 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'records/show', type: :view do
   before(:each) do
-    @record = assign(:record, Record.create!(
-                                title: 'Title',
-                                year: 'Year',
-                                condition: 2
-    ))
+    @record = assign(:record, create(:record))
   end
 
   it 'renders attributes' do

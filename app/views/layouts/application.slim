@@ -12,10 +12,10 @@ html lang="en"
           span.navbar-toggler-icon
         .collapse.navbar-collapse
           ul.navbar-nav.mr-auto
-            li.nav-item.active
+            li.nav-item class= active_link(controller: 'records', action: params[:action])
               = link_to 'Records', Record, class: 'nav-link'
-            li.nav-item
-              = link_to 'Artists', Record, class: 'nav-link'
+            li.nav-item class= active_link(controller: 'artists', action: params[:action])
+              = link_to 'Artists', Artist, class: 'nav-link'
 
       / https://github.com/slim-template/slim#output-without-html-escaping-
       == yield

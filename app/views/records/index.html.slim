@@ -2,18 +2,25 @@
   .col
     h1
       | Records
-  .col
-    .d-flex.justify-content-end
-      = link_to [:new, :record], class: 'btn btn-primary btn-sm', title: 'New Record', data: { toggle: 'tooltip', placement: 'top' } do
-        =< fa_icon 'plus fw'
+  .col.text-right
+    = link_to [:new, :record], class: 'btn btn-primary btn-sm', title: 'New Record', data: { toggle: 'tooltip', placement: 'top' } do
+      =< fa_icon 'plus fw'
 hr
-- if @records.any?
+- if !Record.count.zero?
+  = form_for :search, html: { class: 'mb-3' }, method: :get do |f|
+    .input-group
+      = f.text_field :term, value: (params[:search][:term] if params[:search]), class: 'form-control text-center form-control-lg', placeholder: 'Search....'
+      span.input-group-btn
+        = f.button class: 'btn btn-secondary btn-lg' do
+          = fa_icon 'search'
+
   table.table
     thead
       tr
         th Title
         th Year
         th Condition
+        th Artist
         th width=20
         th width=20
         th width=20
@@ -23,6 +30,7 @@ hr
           td= record.title
           td= record.year
           td= record.condition
+          td= record.artist.name
           td= link_to record, title: 'View', class: 'btn btn-outline-info', title: 'View', data: { toggle: 'tooltip', placement: 'top' } do
             = fa_icon 'eye'
           td= link_to [:edit, record], class: 'btn btn-outline-warning', title: 'Edit', data: { toggle: 'tooltip', placement: 'top' } do

@@ -1,0 +1,18 @@
+.row
+  .col
+    h1
+      | Artist
+  .col.text-right
+    = link_to [:new, :artist], class: 'btn btn-primary btn-sm', title: 'New Artist', data: { toggle: 'tooltip', placement: 'top' } do
+      = fa_icon 'plus'
+    = link_to [:edit, @artist], class: 'btn btn-warning btn-sm', title: "Edit #{@artist.name}", data: { toggle: 'tooltip', placement: 'top' } do
+      = fa_icon 'pencil'
+    = link_to @artist, data: { confirm: 'Are you sure?' }, method: :delete, title: "Edit #{@artist.name}", class: 'btn btn-danger btn-sm' do
+      = fa_icon 'trash'
+    = link_to Artist, class: 'btn btn-sm btn-secondary' do
+      = fa_icon 'arrow-circle-left fw'
+hr
+ul.list-group
+  li.list-group-item
+    strong Name:
+    =< @artist.name

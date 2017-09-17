@@ -2,11 +2,9 @@
 
 class RecordsController < ApplicationController
   before_action :set_record, only: %i[show edit update destroy]
-
+  before_action :set_records, only: :index
   # GET /records
-  def index
-    @records = Record.all
-  end
+  def index; end
 
   # GET /records/1
   def show; end
@@ -48,6 +46,15 @@ class RecordsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def record_params
-    params.require(:record).permit(:title, :year, :condition)
+    params.require(:record).permit(:title, :year, :condition, :artist_id)
+  end
+
+  def set_records
+    term = params[:search][:term] if params[:search]
+    @records = if term.present?
+                 Record.search(term)
+               else
+                 Record.all
+               end
   end
 end

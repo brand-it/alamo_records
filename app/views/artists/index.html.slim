@@ -1,0 +1,38 @@
+.container
+  .row
+    .col
+      h1
+        | Artists
+    .col.text-right
+      = link_to [:new, :artist], class: 'btn btn-primary btn-sm', title: 'New Artist', data: { toggle: 'tooltip', placement: 'top' } do
+        =< fa_icon 'plus'
+
+
+- if @artists.any?
+  table.table
+    thead
+      tr
+        th Name
+        th width=20
+        th width=20
+        th width=20
+    tbody
+      - @artists.each do |artist|
+        tr
+          td= artist.name
+          td= link_to artist, title: 'View', class: 'btn btn-outline-info', title: 'View', data: { toggle: 'tooltip', placement: 'top' } do
+            = fa_icon 'eye'
+          td= link_to [:edit, artist], class: 'btn btn-outline-warning', title: 'Edit', data: { toggle: 'tooltip', placement: 'top' } do
+            = fa_icon 'pencil'
+          td= link_to artist, method: :delete, class: 'btn btn-outline-danger', title: 'Destroy', data: { toggle: 'tooltip', placement: 'top', confirm: 'Are you sure?' } do
+            = fa_icon 'trash'
+- else
+  hr
+  .card
+    .card-body
+      h4.card-title Lets create your first new artist
+      hr
+      = simple_form_for(Artist.new) do |f|
+        = render 'form', f: f
+        .form-actions
+          => f.button :submit
