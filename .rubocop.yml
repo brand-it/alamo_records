@@ -32,6 +32,7 @@ AllCops:
     - bot/**/*
     - lib/tasks/*
     - db/seeds.rb
+    - lib/templates/rspec/scaffold/*
 
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress

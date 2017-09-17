@@ -10,9 +10,9 @@
 module SimpleForm
   module Inputs
     module CustomBase
-      def self.included(base)
+      def self.included(base) # rubocop:disable AbcSize, MethodLength,
         base.class_eval do
-          def merge_wrapper_options(options, wrapper_options) # rubocop:disable MethodLength
+          def merge_wrapper_options(options, wrapper_options) # rubocop:disable MethodLength, AbcSize
             Rails.logger.debug("[OPTIONS] #{options.inspect}")
             Rails.logger.debug("[WRAPPER OPTIONS] #{wrapper_options.inspect}")
             Rails.logger.debug("[HAS ERROR?] #{has_errors?}")

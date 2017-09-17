@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'simple_form/inputs/custom_base'
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
