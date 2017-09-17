@@ -3,8 +3,12 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: %i[show edit update destroy]
   before_action :set_records, only: :index
+  respond_to :js, only: [:index]
+
   # GET /records
-  def index; end
+  def index
+    respond_with @records
+  end
 
   # GET /records/1
   def show; end
@@ -56,5 +60,6 @@ class RecordsController < ApplicationController
                else
                  Record.all
                end
+    @records = @records.page(params[:page])
   end
 end

@@ -3,14 +3,15 @@
     h1
       | <%= singular_table_name.titleize %>
   .col.text-right
-    = link_to [:new, :<%= singular_table_name %>], class: 'btn btn-primary btn-sm', title: 'New <%= class_name.humanize.titleize %>', data: { toggle: 'tooltip', placement: 'top' } do
-      = fa_icon 'plus'
-    = link_to [:edit, @<%= singular_table_name %>], class: 'btn btn-warning btn-sm', title: "Edit #{@<%= singular_table_name %>.name}", data: { toggle: 'tooltip', placement: 'top' } do
-      = fa_icon 'pencil'
-    = link_to @<%= singular_table_name %>, data: { confirm: 'Are you sure?' }, method: :delete, title: "Edit #{@<%= singular_table_name %>.name}", class: 'btn btn-danger btn-sm' do
-      = fa_icon 'trash'
-    = link_to <%= class_name %>, class: 'btn btn-sm btn-secondary' do
-      = fa_icon 'arrow-circle-left fw'
+    .btn-group
+      = link_to [:new, :<%= singular_table_name %>], class: 'btn btn-primary btn-sm', title: 'New <%= class_name.humanize.titleize %>', data: { toggle: 'tooltip', placement: 'top' } do
+        = fa_icon 'plus'
+      = link_to [:edit, @<%= singular_table_name %>], class: 'btn btn-warning btn-sm', title: "Edit #{@<%= singular_table_name %>.name}", data: { toggle: 'tooltip', placement: 'top' } do
+        = fa_icon 'pencil'
+      = link_to @<%= singular_table_name %>, data: { confirm: 'Are you sure?' }, method: :delete, title: "Edit #{@<%= singular_table_name %>.name}", class: 'btn btn-danger btn-sm' do
+        = fa_icon 'trash'
+      = link_to <%= class_name %>, class: 'btn btn-sm btn-secondary' do
+        = fa_icon 'arrow-circle-left fw'
 hr
 ul.list-group
 <% attributes.each do |attribute| -%>

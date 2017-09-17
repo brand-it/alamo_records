@@ -24,19 +24,10 @@ hr
         th width=20
         th width=20
         th width=20
-    tbody
-      - @records.each do |record|
-        tr
-          td= record.title
-          td= record.year
-          td= record.condition
-          td= record.artist.name
-          td= link_to record, title: 'View', class: 'btn btn-outline-info', title: 'View', data: { toggle: 'tooltip', placement: 'top' } do
-            = fa_icon 'eye'
-          td= link_to [:edit, record], class: 'btn btn-outline-warning', title: 'Edit', data: { toggle: 'tooltip', placement: 'top' } do
-            = fa_icon 'pencil'
-          td= link_to record, method: :delete, class: 'btn btn-outline-danger', title: 'Destroy', data: { toggle: 'tooltip', placement: 'top', confirm: 'Are you sure?' } do
-            = fa_icon 'trash'
+    tbody#table-records-body
+      = render @records
+      = render partial: 'load_more', locals: { page: 2 }
+
 - else
   .card
     .card-body

@@ -41,6 +41,7 @@ gem 'slim-rails'
 gem 'factory_girl_rails'
 gem 'font-awesome-rails'
 gem 'httparty'
+gem 'kaminari'
 gem 'simple_form'
 
 group :development, :test do
