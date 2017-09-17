@@ -1,12 +1,25 @@
-p
-  strong Title:
-  = @record.title
-p
-  strong Year:
-  = @record.year
-p
-  strong Condition:
-  = @record.condition
-
-= link_to 'Edit', [:edit, @record]
-= link_to 'List', :record
+.row
+  .col
+    h1
+      | Record
+  .col.text-right
+    .btn-group
+      =< link_to [:new, :record], class: 'btn btn-primary btn-sm', title: 'New Record', data: { toggle: 'tooltip', placement: 'top' } do
+        = fa_icon 'plus fw'
+      =< link_to [:edit, @record], class: 'btn btn-warning btn-sm', title: "Edit #{@record.title}", data: { toggle: 'tooltip', placement: 'top' } do
+        = fa_icon 'pencil fw'
+      =< link_to @record, data: { confirm: 'Are you sure?' }, method: :delete, title: "Destroy #{@record.title}", class: 'btn btn-danger btn-sm' do
+        = fa_icon 'trash fw'
+      =< link_to Record, class: 'btn btn-sm btn-secondary' do
+        = fa_icon 'arrow-circle-left fw'
+hr
+ul.list-group
+  li.list-group-item
+    strong Title:
+    =< @record.title
+  li.list-group-item
+    strong Year:
+    =< @record.year
+  li.list-group-item
+    strong Condition:
+    =< @record.condition

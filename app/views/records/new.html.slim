@@ -4,7 +4,7 @@ h1 Editing record
   = render 'form', f: f
   .form-actions
     => f.button :submit
-    = link_to Record do
+    = link_to Record, class: 'btn btn-secondary' do
       | Cancel
       =< fa_icon 'close'
 

@@ -5,7 +5,7 @@
   .col
     .d-flex.justify-content-end
       = link_to [:new, :record], class: 'btn btn-primary btn-sm', title: 'New Record', data: { toggle: 'tooltip', placement: 'top' } do
-        =< fa_icon 'plus'
+        =< fa_icon 'plus fw'
 hr
 - if @records.any?
   table.table
@@ -14,20 +14,20 @@ hr
         th Title
         th Year
         th Condition
-        th
-        th
-        th
+        th width=20
+        th width=20
+        th width=20
     tbody
       - @records.each do |record|
         tr
           td= record.title
           td= record.year
           td= record.condition
-          td= link_to record, title: 'View', class: 'btn btn-outline-info' do
+          td= link_to record, title: 'View', class: 'btn btn-outline-info', title: 'View', data: { toggle: 'tooltip', placement: 'top' } do
             = fa_icon 'eye'
-          td= link_to record, class: 'btn btn-outline-warning' do
+          td= link_to [:edit, record], class: 'btn btn-outline-warning', title: 'Edit', data: { toggle: 'tooltip', placement: 'top' } do
             = fa_icon 'pencil'
-          td= link_to record, data: { confirm: 'Are you sure?' }, method: :delete do
+          td= link_to record, method: :delete, class: 'btn btn-outline-danger', title: 'Destroy', data: { toggle: 'tooltip', placement: 'top', confirm: 'Are you sure?' } do
             = fa_icon 'trash'
 - else
   .card
