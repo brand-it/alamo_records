@@ -42,6 +42,14 @@ gem 'httparty'
 gem 'kaminari'
 gem 'simple_form'
 
+# thank you the internet for solving the problem
+# Also I am glad I have done research into this already found this was the
+# least amount of work. However it code is not very felaxable.
+# AKA this gem does not scale
+gem 'chartkick'
+gem 'groupdate'
+gem 'hightop'
+
 group :production do
   gem 'pg'
 end
