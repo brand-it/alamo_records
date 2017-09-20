@@ -13,7 +13,7 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ReportsHelper, type: :helper do
-  describe 'c' do
+  describe 'CONDITIONS_FOR_COLLECTION' do
     subject { ReportsHelper::CONDITIONS_FOR_COLLECTION }
   end
 end

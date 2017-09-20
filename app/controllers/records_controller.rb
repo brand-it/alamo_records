@@ -60,6 +60,6 @@ class RecordsController < ApplicationController
                else
                  Record.all
                end
-    @records = @records.page(params[:page])
+    @records = @records.includes(:artist).page(params[:page])
   end
 end

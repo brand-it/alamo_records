@@ -7,12 +7,14 @@
       = link_to [:new, :artist], class: 'btn btn-primary btn-sm', title: 'New Artist', data: { toggle: 'tooltip', placement: 'top' } do
         =< fa_icon 'plus'
 
+      =< export_csv(Artist)
+
 
 - if @artists.any?
   table.table
     thead
       tr
-        th Name
+        th= sortable('Name')
         th width=20
         th width=20
         th width=20
@@ -20,7 +22,7 @@
       - @artists.each do |artist|
         tr
           td= artist.name
-          td= link_to artist, title: 'View', class: 'btn btn-outline-info', title: 'View', data: { toggle: 'tooltip', placement: 'top' } do
+          td= link_to artist, class: 'btn btn-outline-info', title: 'View', data: { toggle: 'tooltip', placement: 'top' } do
             = fa_icon 'eye'
           td= link_to [:edit, artist], class: 'btn btn-outline-warning', title: 'Edit', data: { toggle: 'tooltip', placement: 'top' } do
             = fa_icon 'pencil'
