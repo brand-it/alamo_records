@@ -23,4 +23,6 @@ test:
 production:
   <<: *default
   adapter: postgresql
+  username: brunicnguiuexr
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
   database: db/alamo_records_production.sqlite3
