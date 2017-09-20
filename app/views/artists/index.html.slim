@@ -24,7 +24,7 @@
         tr
 
           td= artist.name
-          td= link_to [artist, :artist_charts], class: 'btn btn-secondary' do
+          td= link_to [artist, :artist_charts], class: 'btn btn-secondary disabled'  do
             = fa_icon 'pie-chart'
           td= link_to artist, class: 'btn btn-outline-info', title: 'View', data: { toggle: 'tooltip', placement: 'top' } do
             = fa_icon 'eye'
