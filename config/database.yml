@@ -26,4 +26,4 @@ production:
   username: brunicnguiuexr
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
-  database: alamo_records_production
+  database: d1oss7bj2vm70p
