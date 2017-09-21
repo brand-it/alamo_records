@@ -5,6 +5,7 @@ class ArtistChart
 
   addRecordsPerYear: ->
     ctx = document.getElementById("records-per-year")
+    return if ctx == null
     chart = new Chart(
       ctx,
       {

@@ -17,9 +17,9 @@ hr
   table.table
     thead
       tr
-        th Title
-        th Year
-        th Condition
+        th= sortable('Title', order_by_key: :title, type: :alpha)
+        th= sortable('Year', order_by_key: :year, type: :numeric)
+        th= sortable('Condition', order_by_key: :condition, type: :numeric)
         th Artist
         th width=20
         th width=20

@@ -35,22 +35,22 @@ module ApplicationHelper
   # also not this is not great because it is not taking into account what the default order is
   # this method is also way to complicated. I need to reduce the complexity by a lot
   # however I don't have time so I am going to go with this hack
-  def sortable(th_name, default_order: 'acs', column: nil) # rubocop:disable MethodLength, AbcSize
-    directions = %w[asc desc]
-    current_direction = params[:order][:direction] if params[:order]
-    if current_direction
-      directions.delete(current_direction)
-    else
-      directions.delete(default_order)
+  def sortable(name, options: {}, default_order: nil, order_by_key: nil, type: nil)
+    icon = ['sort']
+    default_direction = default_direction
+    if params[:order] && params[:order][:column] == order_by_key.to_s
+      current_direction = params[:order][:direction].to_sym
+    elsif default_order
+      current_direction = default_order.to_sym
     end
-    column ||= th_name.downcase.to_sym
-    link_to [Artist, { order: { column: column, direction: directions.first } }.merge(search_params)] do
-      concat "#{th_name} "
-      if directions.first
-        concat fa_icon("sort-#{directions.first}")
-      else
-        concat fa_icon('sort')
-      end
+    icon = ['sort', type, current_direction].compact.join('-') if current_direction
+    next_direction = current_direction == :desc ? :asc : :desc
+    new_params = self.params.dup
+    options = { class: icon }.merge(options)
+    new_params.merge!(order: { column: order_by_key, direction: next_direction })
+    new_params.permit!
+    link_to new_params, options do
+      "#{name} #{fa_icon(icon)}".html_safe
     end
   end
 end

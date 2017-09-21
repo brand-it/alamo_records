@@ -57,6 +57,10 @@ class ArtistsController < ApplicationController
     # term = params[:search][:term] if params[:search]
     @artists = Artist.all.includes(:records)
     @artists = @artists.page(params[:page])
-    @artists = @artists.order(params[:order][:column] => params[:order][:direction]) if params[:order]
+    if params[:order]
+      @artists = @artists.order(params[:order][:column] => params[:order][:direction])
+    else
+      @artists = @artists.order(name: :desc)
+    end
   end
 end

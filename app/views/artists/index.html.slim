@@ -14,7 +14,7 @@
   table.table
     thead
       tr
-        th= sortable('Name')
+        th= sortable('Name', default_order: :desc, order_by_key: :name, type: :alpha)
         th Total Records
         th width=20
         th width=20

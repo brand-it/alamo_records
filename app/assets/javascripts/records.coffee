@@ -26,11 +26,8 @@ class @Records
     query = document.getElementById('search_term').value
     load_more_records.dataset.loadingInProgress = 'true'
     $.ajax
-      url: '/records'
       dataType: 'script'
       data:
-        search:
-          query: query
         page: load_more_records.dataset.page
 
   checkAndLoadMore: ->

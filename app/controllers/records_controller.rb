@@ -61,5 +61,6 @@ class RecordsController < ApplicationController
                  Record.all
                end
     @records = @records.includes(:artist).page(params[:page])
+    @records = @records.order(params[:order][:column] => params[:order][:direction]) if params[:order]
   end
 end
