@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
+
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
   resources :artists do
     resources :artist_charts, only: :index

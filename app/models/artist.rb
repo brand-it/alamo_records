@@ -15,4 +15,14 @@ class Artist < ApplicationRecord
   has_many :records
 
   def search(term); end
+
+  def records_per_year
+    return @years if @years
+    @years = {}
+    records.order(year: 'asc').each do |record|
+      @years[record.year] = 0 if @years[record.year].nil?
+      @years[record.year] += 1
+    end
+    @years
+  end
 end

@@ -17,3 +17,7 @@ ul.list-group
   li.list-group-item
     strong Name:
     =< @artist.name
+
+.row
+  .col
+    canvas id='records-per-year' data-years= raw(@artist.records_per_year.map { |v| v[0] }) data-records-per-year= raw(@artist.records_per_year.map { |v| v[1] })

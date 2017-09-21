@@ -26,5 +26,8 @@ module AlamoRecords
       g.helper = false
       g.fixture_replacement :factory_girl
     end
+
+    config.active_job.queue_adapter = :sidekiq
+
   end
 end
