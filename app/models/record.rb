@@ -21,11 +21,12 @@ class Record < ApplicationRecord
   belongs_to :artist
 
   # TODO: this should be a service
+  # There is a limitation I found with SQL Lite. You can't search enteger values
+  # using the case type method. Only works in postgres sadly.
   def self.search(term)
-    term = "%#{term}%"
     Record.joins(:artist).where(
-      'title LIKE ? OR year LIKE ? OR artists.name LIKE ?',
-      term, term, term
+      'title LIKE ? OR CAST(year AS VARCHAR(10)) LIKE ? OR artists.name LIKE ?',
+      "%#{term}%", "%#{term}%", "%#{term}%"
     )
   end
 end
