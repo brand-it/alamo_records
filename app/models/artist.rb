@@ -12,7 +12,7 @@
 
 class Artist < ApplicationRecord
   validates :name, presence: true
-  has_many :records
+  has_many :records, dependent: :nullify
 
   def records_per_year
     return @years if @years
