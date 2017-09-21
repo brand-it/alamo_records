@@ -15,17 +15,15 @@
     thead
       tr
         th= sortable('Name')
-        th width=20
+        th Total Records
         th width=20
         th width=20
         th width=20
     tbody
       - @artists.each do |artist|
         tr
-
           td= artist.name
-          td= link_to [artist, :artist_charts], class: 'btn btn-secondary disabled'  do
-            = fa_icon 'pie-chart'
+          td= artist.records.count
           td= link_to artist, class: 'btn btn-outline-info', title: 'View', data: { toggle: 'tooltip', placement: 'top' } do
             = fa_icon 'eye'
           td= link_to [:edit, artist], class: 'btn btn-outline-warning', title: 'Edit', data: { toggle: 'tooltip', placement: 'top' } do

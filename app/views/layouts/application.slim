@@ -16,6 +16,8 @@ html lang="en"
               = link_to 'Records', Record, class: 'nav-link'
             li.nav-item class= active_link(controller: 'artists', action: params[:action])
               = link_to 'Artists', Artist, class: 'nav-link'
+            li.nav-item
+              = link_to 'Sidekiq', '/sidekiq', class: 'nav-link'
 
       / https://github.com/slim-template/slim#output-without-html-escaping-
       == yield

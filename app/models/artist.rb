@@ -14,8 +14,6 @@ class Artist < ApplicationRecord
   validates :name, presence: true
   has_many :records
 
-  def search(term); end
-
   def records_per_year
     return @years if @years
     @years = {}

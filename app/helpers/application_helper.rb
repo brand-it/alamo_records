@@ -35,7 +35,7 @@ module ApplicationHelper
   # also not this is not great because it is not taking into account what the default order is
   # this method is also way to complicated. I need to reduce the complexity by a lot
   # however I don't have time so I am going to go with this hack
-  def sortable(th_name, default_order: 'acs') # rubocop:disable MethodLength, AbcSize
+  def sortable(th_name, default_order: 'acs', column: nil) # rubocop:disable MethodLength, AbcSize
     directions = %w[asc desc]
     current_direction = params[:order][:direction] if params[:order]
     if current_direction
@@ -43,7 +43,7 @@ module ApplicationHelper
     else
       directions.delete(default_order)
     end
-    column = th_name.downcase.to_sym
+    column ||= th_name.downcase.to_sym
     link_to [Artist, { order: { column: column, direction: directions.first } }.merge(search_params)] do
       concat "#{th_name} "
       if directions.first
