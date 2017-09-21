@@ -53,7 +53,7 @@ class RecordsController < ApplicationController
     params.require(:record).permit(:title, :year, :condition, :artist_id)
   end
 
-  def set_records
+  def set_records # rubocop:disable AbcSize
     term = params[:search][:term] if params[:search]
     @records = if term.present?
                  Record.search(term)

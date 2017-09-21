@@ -53,14 +53,14 @@ class ArtistsController < ApplicationController
   end
 
   # TODO: this needs to be split into a service... it is going to be super big
-  def set_artists
+  def set_artists # rubocop:disable AbcSize
     # term = params[:search][:term] if params[:search]
     @artists = Artist.all.includes(:records)
     @artists = @artists.page(params[:page])
-    if params[:order]
-      @artists = @artists.order(params[:order][:column] => params[:order][:direction])
-    else
-      @artists = @artists.order(name: :desc)
-    end
+    @artists = if params[:order]
+                 @artists.order(params[:order][:column] => params[:order][:direction])
+               else
+                 @artists.order(name: :desc)
+               end
   end
 end
